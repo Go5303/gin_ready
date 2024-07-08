@@ -1,0 +1,4 @@
+{"level":"local.info","ts":"[2024-07-08 11:53:58.286]","caller":"gin_ready/main.go:16","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-07-08 11:55:16.639]","caller":"gin_ready/main.go:20","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-07-08 11:56:23.868]","caller":"gin_ready/main.go:20","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-07-08 12:03:59.503]","caller":"gin_ready/main.go:25","msg":"log init success!"}

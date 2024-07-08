@@ -1,0 +1,16 @@
+app:
+  env: local
+  port: 8080
+  app_name: gin_ready
+  app_url: http://localhost
+
+log:
+  level: info # 日志等级
+  root_dir: ./storage/logs # 日志根目录
+  filename: app.log # 日志文件名称
+  format: json # 写入格式 可选json
+  show_line: true # 是否显示调用行
+  max_backups: 3 # 旧文件的最大个数
+  max_size: 500 # 日志文件最大大小（MB）
+  max_age: 28 # 旧文件的最大保留天数
+  compress: true # 是否压缩
