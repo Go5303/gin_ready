@@ -1,0 +1,15 @@
+
+2024/07/08 14:42:03 D:/GoPath/src/study/gin_ready/app/models/user.go:21 record not found
+[15.178ms] [rows:0] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 14:42:04 D:/GoPath/src/study/gin_ready/app/services/user.go:25 Error 1054 (42S22): Unknown column 'password' in 'field list'
+[6.339ms] [rows:0] INSERT INTO `users` (`name`,`mobile`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('张海','18317955303','$2a$04$qi00AbKkXN2w0JpaKxF.r.J8piTshkRWuw9/iR7TSjHs66ci1TUrC','2024-07-08 14:42:04.001','2024-07-08 14:42:04.001',NULL)
+
+2024/07/08 14:42:48 D:/GoPath/src/study/gin_ready/app/models/user.go:21 record not found
+[2.001ms] [rows:0] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 14:42:48 D:/GoPath/src/study/gin_ready/app/services/user.go:25
+[8.537ms] [rows:1] INSERT INTO `users` (`name`,`mobile`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('张海','18317955303','$2a$04$0HY//AV3tJhCybNHz.9bEe7L8omAUrv11/5mZT09hJc7GDc2G9HTi','2024-07-08 14:42:48.313','2024-07-08 14:42:48.313',NULL)
+
+2024/07/08 14:43:15 D:/GoPath/src/study/gin_ready/app/models/user.go:21
+[0.529ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
