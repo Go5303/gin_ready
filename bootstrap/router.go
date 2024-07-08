@@ -47,7 +47,7 @@ func RunServer(port string) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	if err := srv.Shutdown(ctx); err != nil {
-		global.App.Log.Error("Shutdown Shutdown ...")
+		global.App.Log.Error("Shutdown err ...")
 	}
 	global.App.Log.Info("Server Exiting ...")
 }
