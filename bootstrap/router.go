@@ -14,12 +14,10 @@ import (
 
 func setupRouter() *gin.Engine {
 	router := gin.Default()
-
+	//静态资源路由
 	router.StaticFile("/", "./static/dist/index.html")
-
-	//注册api分组录路由
-	apiRouterGroup := router.Group("/api")
-	routes.SetApiGroupRoutes(apiRouterGroup)
+	//api相关路由
+	routes.SetApiGroupRoutes(router)
 
 	return router
 }

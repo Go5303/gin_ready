@@ -5,19 +5,20 @@ import (
 	"gin_ready/app/middleware"
 	"gin_ready/app/services"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
-func SetApiGroupRoutes(router *gin.RouterGroup) {
-	router.GET("ping", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
-
-	router.POST("/auth/register", app.Register)
-	router.POST("/auth/login", app.Login)
-
-	authRouter := router.Group("").Use(middleware.JwtAuth(services.AppGuardName))
+func SetApiGroupRoutes(router *gin.Engine) {
+	routerGroup := router.Group("/api")
 	{
-		authRouter.POST("/auth/info", app.Info)
+		//不需要token签名
+		routerGroup.POST("/auth/register", app.Register)
+		routerGroup.POST("/auth/login", app.Login)
+
+		// 需要token签名
+		authRouter := routerGroup.Group("").Use(middleware.JwtAuth(services.AppGuardName))
+		{
+			authRouter.POST("/auth/info", app.Info)
+		}
 	}
+
 }
