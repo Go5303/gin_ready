@@ -37,3 +37,13 @@ func Login(c *gin.Context) {
 		response.Success(c, tokenData)
 	}
 }
+
+func Info(c *gin.Context) {
+	id, _ := c.Get("id")
+	err, user := services.UserService.GetUserInfo(id.(string))
+	if err != nil {
+		response.BusinessFail(c, err.Error())
+		return
+	}
+	response.Success(c, user)
+}

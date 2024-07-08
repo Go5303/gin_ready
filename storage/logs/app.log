@@ -17,3 +17,6 @@
 {"level":"local.info","ts":"[2024-07-08 14:41:07.133]","caller":"gin_ready/main.go:14","msg":"log init success!"}
 {"level":"local.info","ts":"[2024-07-08 14:46:24.824]","caller":"bootstrap/router.go:45","msg":"Shutdown Server ..."}
 {"level":"local.info","ts":"[2024-07-08 14:46:24.824]","caller":"bootstrap/router.go:52","msg":"Server Exiting ..."}
+{"level":"local.info","ts":"[2024-07-08 15:58:38.720]","caller":"gin_ready/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-07-08 16:09:33.016]","caller":"bootstrap/router.go:45","msg":"Shutdown Server ..."}
+{"level":"local.info","ts":"[2024-07-08 16:09:33.018]","caller":"bootstrap/router.go:52","msg":"Server Exiting ..."}

@@ -13,3 +13,12 @@
 
 2024/07/08 14:43:15 D:/GoPath/src/study/gin_ready/app/models/user.go:21
 [0.529ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 15:58:46 D:/GoPath/src/study/gin_ready/app/services/user.go:31
+[1.983ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 15:58:50 D:/GoPath/src/study/gin_ready/app/services/user.go:31
+[0.169ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 15:58:54 D:/GoPath/src/study/gin_ready/app/services/user.go:31
+[0.242ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
