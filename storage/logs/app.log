@@ -9,3 +9,4 @@
 {"level":"local.info","ts":"[2024-07-08 12:20:01.226]","caller":"gin_ready/main.go:31","msg":"db init success"}
 {"level":"local.info","ts":"[2024-07-08 12:20:26.760]","caller":"gin_ready/main.go:27","msg":"log init success!"}
 {"level":"local.info","ts":"[2024-07-08 12:20:26.770]","caller":"gin_ready/main.go:31","msg":"db init success"}
+{"level":"local.info","ts":"[2024-07-08 12:31:46.691]","caller":"gin_ready/main.go:16","msg":"log init success!"}

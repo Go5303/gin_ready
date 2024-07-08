@@ -2,33 +2,31 @@ package main
 
 import (
 	"gin_ready/bootstrap"
-	"gin_ready/config"
 	"gin_ready/global"
 	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
-	"gorm.io/gorm"
 	"net/http"
 )
 
-var (
-	Log  *zap.Logger
-	Yaml config.Configuration
-	DB   *gorm.DB
-)
-
 func main() {
-	//初始化yaml配置
+	// 初始化配置
 	bootstrap.InitializeConfig()
-	Yaml = global.App.Config
 
-	//初始化log
+	// 初始化日志
 	global.App.Log = bootstrap.InitializeLog()
-	Log = global.App.Log
-	Log.Info("log init success!")
+	global.App.Log.Info("log init success!")
 
-	//数据库初始化
-	DB = bootstrap.InitializeDB()
-	Log.Info("db init success")
+	// 初始化数据库
+	global.App.DB = bootstrap.InitializeDB()
+	// 程序关闭前，释放数据库连接
+	defer func() {
+		if global.App.DB != nil {
+			db, _ := global.App.DB.DB()
+			err := db.Close()
+			if err != nil {
+				return
+			}
+		}
+	}()
 
 	r := gin.Default()
 
@@ -38,8 +36,9 @@ func main() {
 	})
 
 	// 启动服务器
-	err := r.Run(":" + Yaml.App.Port)
+	err := r.Run(":" + global.App.Config.App.Port)
 	if err != nil {
+		global.App.Log.Error("err:" + err.Error())
 		return
 	}
 }
