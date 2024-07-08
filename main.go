@@ -26,6 +26,9 @@ func main() {
 		}
 	}()
 
+	//初始化redis
+	global.App.Redis = bootstrap.InitializeRedis()
+
 	// 路由注册
 	bootstrap.RunServer(global.App.Config.App.Port)
 }
