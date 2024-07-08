@@ -3,8 +3,6 @@ package main
 import (
 	"gin_ready/bootstrap"
 	"gin_ready/global"
-	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func main() {
@@ -28,17 +26,6 @@ func main() {
 		}
 	}()
 
-	r := gin.Default()
-
-	// 测试路由
-	r.GET("/ping", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
-
-	// 启动服务器
-	err := r.Run(":" + global.App.Config.App.Port)
-	if err != nil {
-		global.App.Log.Error("err:" + err.Error())
-		return
-	}
+	// 路由注册
+	bootstrap.RunServer(global.App.Config.App.Port)
 }
