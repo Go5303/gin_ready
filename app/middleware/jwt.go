@@ -22,7 +22,7 @@ func JwtAuth(GuardName string) gin.HandlerFunc {
 			return []byte(global.App.Config.Jwt.Secret), nil
 		})
 
-		if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+		if err != nil {
 			response.TokenFail(c)
 			c.Abort()
 			return
