@@ -31,8 +31,7 @@ database:
 
 jwt:
   secret: 3Bde3BGEbYqtqyEUzW3ry3djKFcaPH17fRmTmqE7MDr05Lwj95uruRKrrkb44TJ4s
-  jwt_ttl: 30
-  jwt_blacklist_grace_period: 10
+  jwt_ttl: 7200
 
 redis:
   host: 127.0.0.1
