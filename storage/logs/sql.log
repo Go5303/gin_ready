@@ -1,0 +1,66 @@
+
+2024/07/08 14:42:03 D:/GoPath/src/study/gin_ready/app/models/user.go:21 record not found
+[15.178ms] [rows:0] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 14:42:04 D:/GoPath/src/study/gin_ready/app/services/user.go:25 Error 1054 (42S22): Unknown column 'password' in 'field list'
+[6.339ms] [rows:0] INSERT INTO `users` (`name`,`mobile`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('张海','18317955303','$2a$04$qi00AbKkXN2w0JpaKxF.r.J8piTshkRWuw9/iR7TSjHs66ci1TUrC','2024-07-08 14:42:04.001','2024-07-08 14:42:04.001',NULL)
+
+2024/07/08 14:42:48 D:/GoPath/src/study/gin_ready/app/models/user.go:21 record not found
+[2.001ms] [rows:0] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 14:42:48 D:/GoPath/src/study/gin_ready/app/services/user.go:25
+[8.537ms] [rows:1] INSERT INTO `users` (`name`,`mobile`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('张海','18317955303','$2a$04$0HY//AV3tJhCybNHz.9bEe7L8omAUrv11/5mZT09hJc7GDc2G9HTi','2024-07-08 14:42:48.313','2024-07-08 14:42:48.313',NULL)
+
+2024/07/08 14:43:15 D:/GoPath/src/study/gin_ready/app/models/user.go:21
+[0.529ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 15:58:46 D:/GoPath/src/study/gin_ready/app/services/user.go:31
+[1.983ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 15:58:50 D:/GoPath/src/study/gin_ready/app/services/user.go:31
+[0.169ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 15:58:54 D:/GoPath/src/study/gin_ready/app/services/user.go:31
+[0.242ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:39:21 D:/GoPath/src/study/gin_ready/app/services/user.go:32
+[3.001ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:40:27 D:/GoPath/src/study/gin_ready/app/services/user.go:32
+[0.000ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:49:19 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[4.585ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:50:31 D:/GoPath/src/study/gin_ready/app/services/user.go:32
+[0.695ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:50:54 D:/GoPath/src/study/gin_ready/app/services/user.go:32
+[0.000ms] [rows:1] SELECT * FROM `users` WHERE mobile = '18317955303' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:06 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[0.682ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:08 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[0.504ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:09 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[0.523ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:14 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[0.000ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:15 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[1.222ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:16 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[0.747ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:17 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[0.751ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:19 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[0.714ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2024/07/08 16:51:20 D:/GoPath/src/study/gin_ready/app/services/user.go:42
+[0.000ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 1 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
