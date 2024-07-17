@@ -5,4 +5,4 @@ gin项目demo
 本项目主要为golang初学者提供服务！
 
 # 主要知识点
-jwt、auth中间件、orm、日志管理、Validator、router
+jwt、auth中间件、redis、crontab、orm、日志管理、Validator、router、static
