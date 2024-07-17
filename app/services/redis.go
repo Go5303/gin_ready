@@ -2,28 +2,19 @@ package services
 
 import (
 	"context"
-	"gin_ready/global"
 	"github.com/go-redis/redis/v8"
 	"time"
 )
 
-type redisService struct {
+type RedisService struct {
+	RedisClient *redis.Client
 }
-
-var RedisService = new(redisService)
 
 var ctx = context.Background()
 
-var rdb *redis.Client
-
-func (*redisService) InitRdb() *redisService {
-	rdb = global.App.Redis
-	return new(redisService)
-}
-
 // SetRedisString 设置key=>value
-func (*redisService) SetRedisString(key, value string, time time.Duration) error {
-	err := rdb.Set(ctx, key, value, time).Err()
+func (redisService *RedisService) SetRedisString(key, value string, time time.Duration) error {
+	err := redisService.RedisClient.Set(ctx, key, value, time).Err()
 	if err != nil {
 		return err
 	}
@@ -31,8 +22,8 @@ func (*redisService) SetRedisString(key, value string, time time.Duration) error
 }
 
 // GetRedisString 获取key
-func (*redisService) GetRedisString(key string) (string, error) {
-	val, err := rdb.Get(ctx, key).Result()
+func (redisService *RedisService) GetRedisString(key string) (string, error) {
+	val, err := redisService.RedisClient.Get(ctx, key).Result()
 	if err != nil && err != redis.Nil {
 		return val, err
 	}
@@ -40,20 +31,26 @@ func (*redisService) GetRedisString(key string) (string, error) {
 }
 
 // HSetRedisString 设置hash
-func (*redisService) HSetRedisString(key, hKey, value string, time time.Duration) error {
-	err := rdb.HSet(ctx, key, hKey, value).Err()
+func (redisService *RedisService) HSetRedisString(key, hKey, value string, time time.Duration) error {
+	err := redisService.RedisClient.HSet(ctx, key, hKey, value).Err()
 	if err != nil {
 		return err
 	}
-	rdb.Expire(ctx, key, time)
+	redisService.RedisClient.Expire(ctx, key, time)
 	return nil
 }
 
 // HGetRedisString 获取hash类型对应的子key的值
-func HGetRedisString(key, hKey string) (string, error) {
-	val, err := rdb.HGet(ctx, key, hKey).Result()
+func (redisService *RedisService) HGetRedisString(key, hKey string) (string, error) {
+	val, err := redisService.RedisClient.HGet(ctx, key, hKey).Result()
 	if err != nil && err != redis.Nil {
 		return val, err
 	}
 	return val, nil
+}
+
+// SetNx 加锁 return: true-锁成功 false-锁失败
+func (redisService *RedisService) SetNx(key string, value interface{}, time time.Duration) bool {
+	val := redisService.RedisClient.SetNX(ctx, key, value, time).Val()
+	return val
 }
