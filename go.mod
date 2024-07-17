@@ -3,6 +3,7 @@ module gin_ready
 go 1.20
 
 require (
+	github.com/Go5303/uuid v0.0.0-20240717091923-9eb5ba6b1990
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.7.0
 	github.com/gin-gonic/gin v1.10.0

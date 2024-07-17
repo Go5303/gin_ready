@@ -1,10 +1,12 @@
 package crontab
 
 import (
-	"fmt"
+	"gin_ready/app/services"
 	"gin_ready/global"
+	"github.com/Go5303/uuid"
 	"github.com/robfig/cron"
 	"go.uber.org/zap"
+	"time"
 )
 
 const (
@@ -23,5 +25,10 @@ func InitCron() {
 
 // task1
 func task1() {
-	fmt.Println("task1")
+	randStr := uuid.Uuid()
+	redisService := services.RedisService{RedisClient: global.App.Redis}
+	err := redisService.HSetRedisString("uuid", randStr, "uuid:"+randStr, 3600*10*time.Second)
+	if err != nil {
+		global.App.Log.Error("task1", zap.Any("err", err))
+	}
 }

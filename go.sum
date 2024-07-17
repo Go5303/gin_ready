@@ -1,3 +1,5 @@
+github.com/Go5303/uuid v0.0.0-20240717091923-9eb5ba6b1990 h1:SKMZhNas5gNxcqNu8G9uITdKmwyIwMo3J6dcGW5jdz0=
+github.com/Go5303/uuid v0.0.0-20240717091923-9eb5ba6b1990/go.mod h1:26iOaZe85tjyIpFh5nuOHsgkoHFXi9EmNhyfBLolt7Q=
 github.com/benbjohnson/clock v1.1.0 h1:Q92kusRqC1XV2MjkWETPvjJVqKetz1OzxZB7mHJLju8=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/bytedance/sonic v1.11.9 h1:LFHENlIY/SLzDWverzdOvgMztTxcfcF+cqNsz9pK5zg=
