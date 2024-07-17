@@ -8,6 +8,7 @@ require (
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-playground/validator/v10 v10.22.0
 	github.com/go-redis/redis/v8 v8.11.5
+	github.com/robfig/cron v1.2.0
 	github.com/spf13/viper v1.19.0
 	go.uber.org/zap v1.21.0
 	golang.org/x/crypto v0.25.0

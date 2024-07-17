@@ -1,6 +1,7 @@
 package main
 
 import (
+	"gin_ready/app/crontab"
 	"gin_ready/bootstrap"
 	"gin_ready/global"
 )
@@ -28,6 +29,9 @@ func main() {
 
 	//初始化redis
 	global.App.Redis = bootstrap.InitializeRedis()
+
+	//初始化定时任务
+	crontab.InitCron()
 
 	// 路由注册
 	bootstrap.RunServer(global.App.Config.App.Port)
